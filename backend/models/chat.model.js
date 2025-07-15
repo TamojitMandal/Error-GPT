@@ -9,9 +9,13 @@ const chatSchema = mongoose.Schema(
     },
     messages: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Message",
-      },
+        _id: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Message",
+        },
+        prompt: String,
+        reply: String,
+      }
     ],
     name: {
       type: String,
