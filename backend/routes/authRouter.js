@@ -14,7 +14,7 @@ authRouter.post("/sign-up", signUpController);
 authRouter.post("/sign-in", signinController);
 authRouter.post("google", googleAuthenticationController);
 authRouter.post("/sign-out", verifyToken, signoutController);
-authRouter.delete("/delete", verifyToken, deleteController);
+authRouter.delete("/delete/:id", verifyToken, deleteController);
 
 
 export default authRouter;
