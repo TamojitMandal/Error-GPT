@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { assets } from '../assets/assets';
-import ChatLabel from './ChatLabel';
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { assets } from "../assets/assets";
+import ChatLabel from "./ChatLabel";
 
 const Sidebar = ({ expand, setExpand }) => {
   const [isOpen, setIsOpen] = useState({ id: 0, open: false });
@@ -13,23 +13,30 @@ const Sidebar = ({ expand, setExpand }) => {
     <motion.div
       initial={{ x: -80, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`flex flex-col justify-between backdrop-blur-2xl bg-gradient-to-br from-black/50 via-zinc-900/60 to-black/50 shadow-2xl border-r border-white/10 pt-7 transition-all z-50 max-md:absolute max-md:h-screen text-white ${
-        expand ? 'p-4 w-64' : 'md:w-20 w-20 max-md:overflow-hidden'
-      }`}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`flex flex-col justify-between 
+        backdrop-blur-2xl bg-gradient-to-br from-black/50 via-zinc-900/60 to-black/50 
+        shadow-2xl border-r border-white/10 text-white z-50 
+        transition-all duration-300 ease-in-out 
+        overflow-hidden 
+        ${
+          expand
+            ? "w-64 p-4 max-md:fixed max-md:top-0 max-md:left-0 max-md:h-screen"
+            : "w-16 md:w-20 p-2 max-md:fixed max-md:top-4 max-md:left-4 max-md:h-12 max-md:rounded-xl max-md:z-50"
+        }`}
     >
       {/* Top Section */}
       <div>
         {/* Logo and Toggle Button */}
         <div
           className={`${
-            expand ? 'flex flex-row gap-10' : 'flex flex-col items-center gap-8'
+            expand ? "flex flex-row gap-10" : "flex flex-col items-center gap-8"
           }`}
         >
           {expand ? (
             <Image className="w-36" src={assets.logo_text} alt="Logo Text" />
           ) : (
-            <Image className="w-10" src={assets.logo_icon} alt="Logo Icon" />
+            <Image className="w-10 hidden md:" src={assets.logo_icon} alt="Logo Icon" />
           )}
 
           <motion.div
@@ -52,18 +59,22 @@ const Sidebar = ({ expand, setExpand }) => {
 
         {/* New Chat Button */}
         <motion.button
-          whileHover={{ scale: 1.05, boxShadow: '0px 0px 20px rgba(255,255,255,0.4)' }}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0px 0px 20px rgba(255,255,255,0.4)",
+          }}
           className={`mt-8 flex items-center justify-center cursor-pointer transition-all ${
             expand
-              ? 'bg-gradient-to-r from-white/10 via-white/5 to-white/10 hover:opacity-90 rounded-2xl gap-2 p-2.5 w-full backdrop-blur-md'
-              : 'group relative h-10 w-10 mx-auto hover:bg-white/10 rounded-lg'
+              ? "bg-gradient-to-r from-white/10 via-white/5 to-white/10 hover:opacity-90 rounded-2xl gap-2 p-2.5 w-full backdrop-blur-md"
+              : "group relative h-10 w-10 mx-auto hover:bg-white/10 rounded-lg"
           }`}
         >
           <Image
-            className={expand ? 'w-6' : 'w-7'}
+            className={expand ? "w-6" : "w-7"}
             src={expand ? assets.chat_icon : assets.chat_icon_dull}
             alt="New Chat Icon"
           />
+          
           {!expand && (
             <div className="absolute w-max -top-12 -right-12 opacity-0 group-hover:opacity-100 transition bg-black text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none">
               New Chat
@@ -74,7 +85,7 @@ const Sidebar = ({ expand, setExpand }) => {
         </motion.button>
 
         {/* Recent Chats Section */}
-        <div className={`mt-10 ${expand ? 'block' : 'hidden'}`}>
+        <div className={`mt-10 ${expand ? "block" : "hidden"}`}>
           <motion.h3
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -90,7 +101,11 @@ const Sidebar = ({ expand, setExpand }) => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="space-y-2"
           >
-            <ChatLabel openMenu={isOpen} setOpenMenu={setIsOpen} isNewChat={false} />
+            <ChatLabel
+              openMenu={isOpen}
+              setOpenMenu={setIsOpen}
+              isNewChat={false}
+            />
           </motion.div>
         </div>
       </div>
@@ -103,14 +118,18 @@ const Sidebar = ({ expand, setExpand }) => {
       >
         <div
           className={`flex items-center gap-3 text-white/70 text-sm p-2 cursor-pointer ${
-            expand ? 'hover:bg-white/10 rounded-lg' : 'justify-center w-full'
+            expand ? "hover:bg-white/10 rounded-lg" : "justify-center w-full"
           }`}
         >
           <motion.div
             whileHover={{ rotate: [0, -5, 5, 0], scale: 1.1 }}
             className="flex items-center"
           >
-            <Image className="w-7" src={assets.profile_icon} alt="Profile Icon" />
+            <Image
+              className="w-7"
+              src={assets.profile_icon}
+              alt="Profile Icon"
+            />
           </motion.div>
           {expand && <span>My Profile</span>}
         </div>
