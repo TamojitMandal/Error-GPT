@@ -1,0 +1,10 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Unique speech bubble with angled tail -->
+  <path d="M50 5 L85 27 V63 L50 85 L30 72 L20 79 V60 L15 57 V27 Z" fill="white"/>
+  
+  <!-- Inner background -->
+  <path d="M50 20 L75 35 V58 L50 73 L25 58 V35 Z" fill="black"/>
+
+  <!-- Stylized E -->
+  <path d="M40 38 H60 L57 42 H44 V46 H55 L52 50 H44 V54 H60 L57 58 H40 Z" fill="white"/>
+</svg>
