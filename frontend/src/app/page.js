@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+import Hero from "@/components/hero";
+=======
 "use client";
 
 import { useState } from "react";
+>>>>>>> 817c712d5d6019e8fd9b85171464a844a33534f7
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { assets } from "../../assets/assets";
@@ -9,6 +13,10 @@ import PromtBox from "../../comonents/Promtbox";
 import Message from "../../comonents/Message";
 
 export default function Home() {
+<<<<<<< HEAD
+  return (
+    <Hero />
+=======
   const [expand, setExpand] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -106,5 +114,6 @@ export default function Home() {
         </p>
       </div>
     </div>
+>>>>>>> 817c712d5d6019e8fd9b85171464a844a33534f7
   );
 }
